@@ -1,0 +1,29 @@
+{
+  "home": {
+    "title": "Início",
+    "actions": {
+      "menu": "Menu",
+      "login": "Entrar",
+      "logout": "Sair",
+      "myProfile": "Meu Perfil",
+      "administration": "Administração",
+      "about": "Sobre",
+      "search": "Pesquisar"
+    },
+    "messages": {
+      "language": "Idioma"
+    }
+  },
+  "errors": {
+    "error": "Erro"
+  },
+  "validations": {
+    "validation": "Validar"
+  },
+  "common": {
+    "languages": {
+      "en": "English",
+      "pt": "Português"
+    }
+  }
+}

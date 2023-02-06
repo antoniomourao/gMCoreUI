@@ -2,6 +2,16 @@
 <div class="main-container">
   <h1>Main Page</h1>
 
+  <div>
+            <img src="/assets/images/common/en.png" style="height:10px;">
+    <select formControlName="languages" (change)="changeLanguage($event.target)">
+        <option *ngFor="let lang of languages" [value]="lang" [selected]="language === lang">
+            <a *ngIf="language !== lang" href="javascript:void(0)" class="link lang-item {{lang}}">{{ 'common.languages.' + lang | i18nextCap }}</a>
+            <span *ngIf="language === lang" class="current lang-item {{lang}}">{{ 'common.languages.' + lang | i18nextCap }}</span>
+        </option>
+      </select>
+</div>
+
   <div
     class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3"
   >
