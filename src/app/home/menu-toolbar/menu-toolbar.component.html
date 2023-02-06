@@ -16,8 +16,18 @@
       <i class="bi bi-house-fill"></i>
     </a>
     <ul class="dropdown-menu dropdown-menu-start">
-      <li><a class="dropdown-item" href="#">About</a></li>
-      <li><a class="dropdown-item" href="#">Administration</a></li>
+      <li><span class="dropdown-item-text">{{ 'home.messages.language' | i18next }} <img src="/assets/images/common/{{language}}.png" style="height:10px;"></span></li>
+      <li class="" *ngFor="let item of menuAdminList">
+        <hr *ngIf="item.title === '-'" class="dropdown-divider" />
+        <a
+          *ngIf="item.title !== '-'"
+          class="dropdown-item"
+          (click)="menuAction(item)"
+        >
+          {{ item.title | i18next }}
+          <i *ngIf="item.value === language" class="bi bi-check"></i>
+        </a>
+      </li>
     </ul>
 
     <div class="bd-navbar-toggle">
@@ -43,7 +53,7 @@
       data-bs-scroll="true"
     >
       <div class="offcanvas-header border-bottom">
-        <h5 class="offcanvas-title" id="bdNavbarOffcanvasLabel">Menu</h5>
+        <h5 class="offcanvas-title" id="bdNavbarOffcanvasLabel">{{ 'home.actions.menu' | i18next }}</h5>
         <button
           type="button"
           class="btn-close"
