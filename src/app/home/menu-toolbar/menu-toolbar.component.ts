@@ -5,12 +5,17 @@ import { MenuToolbarItemsComponent } from './menu-toolbar-items.component';
 import { I18NextPipe } from 'angular-i18next';
 import { MenuItem } from 'src/app/common/shared';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
   selector: 'app-menu-toolbar',
-  imports: [CommonModule, RouterModule, I18NextModule, MenuToolbarItemsComponent],
+  imports: [
+    CommonModule,
+    RouterModule,
+    I18NextModule,
+    MenuToolbarItemsComponent,
+  ],
   templateUrl: './menu-toolbar.component.html',
 })
 export class MenuToolbarComponent {
@@ -24,12 +29,12 @@ export class MenuToolbarComponent {
     },
     {
       title: 'home.actions.administration',
-      action: '/app/admin',
+      action: '/home/admin',
       isRoute: true,
     },
     {
       title: 'home.actions.about',
-      action: '/app/about',
+      action: '/home/about',
       isRoute: true,
     },
   ];
@@ -37,6 +42,7 @@ export class MenuToolbarComponent {
   constructor(
     private readonly appConfig: AppConfigService,
     private readonly i18nextPipe: I18NextPipe,
+    private readonly router: Router,
     @Inject(I18NEXT_SERVICE)
     private readonly i18NextService: ITranslationService
   ) {
@@ -56,7 +62,7 @@ export class MenuToolbarComponent {
         action: `changeLanguage:${lang}`,
         isRoute: false,
         value: lang,
-        imageUrl: `assets/images/common/${lang}.png`
+        imageUrl: `assets/images/common/${lang}.png`,
       });
     });
   }
@@ -69,6 +75,7 @@ export class MenuToolbarComponent {
    */
   public menuAction(menuItem: MenuItem): void {
     if (menuItem.isRoute) {
+      this.router.navigate([menuItem.action]);
     } else {
       if (menuItem.action.startsWith('changeLanguage')) {
         this.changeLanguage(menuItem.value || this.language);
