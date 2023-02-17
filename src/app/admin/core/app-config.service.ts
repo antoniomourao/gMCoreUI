@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AppConfig } from '@app/common';
+import { AppConfig } from '@app/domain';
 
 export function setupAppConfigServiceFactory(
   service: AppConfigService

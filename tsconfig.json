@@ -27,11 +27,12 @@
       "@app/admin": [
         "src/app/admin/index.ts"
       ],
-      "@app/common": [
-        "src/app/common/index.ts"
+      "@app/domain": [
+        "src/app/domain/index.ts"
       ],
-      "@app/shared": [
-        "src/app/shared/index.ts"
+      "shared": [
+        "dist/shared",
+        "dist/shared"
       ]
     }
   },

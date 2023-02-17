@@ -3,7 +3,7 @@ import { I18NextModule, I18NEXT_SERVICE, ITranslationService } from 'angular-i18
 import { AppConfigService } from 'src/app/admin';
 import { MenuToolbarItemsComponent } from './menu-toolbar-items.component';
 import { I18NextPipe } from 'angular-i18next';
-import { MenuItem } from 'src/app/common/shared';
+import { MenuItem } from 'src/app/domain/shared';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
